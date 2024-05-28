@@ -53,4 +53,21 @@ Rails.application.configure do
   config.action_dispatch.default_headers = {
     'X-Frame-Options' => 'ALLOWALL'
   }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.example.com',
+    port: 587,
+    domain: 'example.com',
+    user_name: 'username',
+    password: 'password',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_options = {
+    from: 'registration@hackerrank.com',
+    reply_to: 'admin@hackerrank.com',
+    bcc: 'admin@hackerrank.com'
+  }
 end
